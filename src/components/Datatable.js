@@ -4,12 +4,37 @@
 
 import React, { Component } from 'react';
 
-class Datatable extends Component {
-    render(){
-        return (
-            <h3>Datatable Component</h3>
-        )
-    }
-}
+import { Breadcrumb } from 'antd';
 
-export default Datatable;
+import { Table } from 'antd';
+
+
+// rowSelection object indicates the need for row selection
+const rowSelection = {
+    onChange: (selectedRowKeys, selectedRows) => {
+        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+    },
+    onSelect: (record, selected, selectedRows) => {
+        console.log(record, selected, selectedRows);
+    },
+    onSelectAll: (selected, selectedRows, changeRows) => {
+        console.log(selected, selectedRows, changeRows);
+    },
+    getCheckboxProps: record => ({
+        disabled: record.name === 'Disabled User',    // Column configuration not to be checked
+    }),
+};
+
+//class Datatable extends Component {
+//    render(data, columns){
+//        return (
+//            <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+//        )
+//    }
+//}
+//
+//export default Datatable;
+
+export default ({columns, data}) => (
+    <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+)

@@ -22,3 +22,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.App .content {
+  text-align: left;
+  margin-top: 10px;
+}

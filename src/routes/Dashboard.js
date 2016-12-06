@@ -10,8 +10,9 @@ import Datatable from '../components/Datatable.js';
 class Dashboard extends Component {
     render(){
         return (
-            <h1>Dashboard</h1>
-            <Datatable/>
+            <div className="dashboard">
+                <h1>Dashboard</h1>
+            </div>
         )
     }
 }

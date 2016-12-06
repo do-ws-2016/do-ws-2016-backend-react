@@ -4,8 +4,12 @@ import './App.css';
 
 import Category from './routes/Category.js';
 import Dashboard  from './routes/Dashboard.js';
+import List  from './routes/List.js';
+
+import MainMenu from './components/Menu.js';
 
 
+import {Row, Col} from 'antd';
 
 import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
 
@@ -16,11 +20,18 @@ class App extends Component {
         <div className="App-header">
           <h2>Backend Grill-App</h2>
         </div>
-
-        <Router history={hashHistory}>
-          <Route path='/' component={Dashboard}/>
-          <Route path='/category' component={Category}/>
-        </Router>
+        <MainMenu/>
+        <div className="content">
+          <Row>
+            <Col span={12} offset={6}>
+              <Router history={hashHistory}>
+                <Route path='/' component={Dashboard}/>
+                <Route path='/receipts' component={Category}/>
+                <Route path='/list' component={List}/>
+              </Router>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
